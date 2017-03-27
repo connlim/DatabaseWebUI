@@ -1,0 +1,2 @@
+graft flaskapp/templates
+graft flaskapp/static

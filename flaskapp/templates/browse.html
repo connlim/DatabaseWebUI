@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block header_title %}Browse{% endblock %}
+{% block page_title %}Browse{% endblock %}
+{% block style %}
+<style type="text/css">
+  table > thead > tr > th {
+    transition: background-color .25s ease;
+  }
+
+  table > thead > tr > th:hover {
+    background-color: #f2f2f2;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<ul class="collapsible popout" data-collapsible="expandable">
+{% for table in entries %}
+  <li>
+    <div class="collapsible-header"><i class="material-icons">list</i>{{ table_names[loop.index-1] }}</div>
+    <div class="collapsible-body">
+      <table class="striped myTable">
+      {% for row in table %}
+        {% if loop.index == 1 %}
+        <thead>
+          <tr>
+          {% for key, value in row.items() %}
+            <th>{{ key }}</th>
+          {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% endif %}
+
+        <tr>
+        {% for key, value in row.items() %}
+          <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+
+      {% endfor %}
+      </tbody>
+      </table>
+    </div>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/browse.js') }}"></script>
+{% endblock %}
