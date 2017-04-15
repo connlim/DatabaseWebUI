@@ -22,13 +22,22 @@ pip install virtualenv
 #### Windows
 Run all the commands below in a Command Prompt
 
+Create a new virtual environment
+```
+> virtualenv venv
+```
+
 Activate the virtual environment
 ```
 > venv\Scripts\activate
 ```
 
-Set the flask app environment variable
+Install required packages
+```
+> pip install -r requirements.txt
+```
 
+Set the flask app environment variable
 ```
 > set FLASK_APP=flaskapp
 ```
@@ -37,5 +46,5 @@ Run the app
 ```
 > flask run
 ```
-Visit [localhost:5000](localhost:5000) to view the app
+Visit `localhost:5000` to view the app
 
