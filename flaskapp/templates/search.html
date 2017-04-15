@@ -1,16 +1,83 @@
 {% extends "layout.html" %}
-{% block header_title %}Search{% endblock %}
-{% block page_title %}Search{% endblock %}
+{% block header_title %}Search Tests{% endblock %}
+{% block page_title %}Search Tests{% endblock %}
+{% block style %}
+<style type="text/css">
+  h3 {
+    color: #03a9f4;
+    font-weight: 300;
+  }
+</style>
+{% endblock %}
 {% block body %}
 <div class="container">
-  <h4>Student</h4>
-  <p>Search the student table</p>
-  <div class="row">
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
-      </div>
+<form action="/search" method="POST">
+  <h3>Criteria</h3>
+  <div class="section">
+  <h5>Student</h5>
+  <p>Narrow search using criteria in the student table</p>
+  <div class="switch">
+    <label>
+      Use these criteria
+      <input type="checkbox" name="use_student">
+      <span class="lever"></span>
+    </label>
   </div>
-  <h4>Lesson</h4>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="student_id" type="text" class="validate" name="student_id">
+      <label for="student_id">id</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      <input id="weight" type="text" class="validate" name="weight">
+      <label for="weight">Weight</label>
+    </div>
+    <div class="input-field col s4">
+      <input id="height" type="text" class="validate" name="height">
+      <label for="height">Height</label>
+    </div>
+    <div class="input-field col s4">
+      <input id="sex" type="text" class="validate" name="sex">
+      <label for="sex">Sex</label>
+    </div>
+  </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+  <h5>Exercise</h5>
+  <p>Narrow search using criteria in the exercise table</p>
+  <div class="switch">
+    <label>
+      Use these criteria
+      <input type="checkbox" name="use_exercise">
+      <span class="lever"></span>
+    </label>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="exercise_name" type="text" class="validate" name="exercise_name">
+      <label for="exercise_name">Name</label>
+    </div>
+    <div class="input-field col s3">
+      <input id="type" type="text" class="validate" name="type">
+      <label for="type">Type</label>
+    </div>
+    <div class="input-field col s3">
+      <input id="intensity" type="text" class="validate" name="intensity">
+      <label for="intensity">Intensity</label>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <button style="float: right; margin-right: 10px" class="btn waves-effect waves-light" type="submit" name="action">Search
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</form>
 </div>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/search.js') }}"></script>
 {% endblock %}

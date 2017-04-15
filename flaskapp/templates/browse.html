@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
-{% block header_title %}Browse{% endblock %}
-{% block page_title %}Browse{% endblock %}
+{% block header_title %}{{ title }}{% endblock %}
+{% block page_title %}{{ title }}{% endblock %}
 {% block style %}
 <style type="text/css">
   table > thead > tr > th {
@@ -38,7 +38,6 @@
           <td>{{ value }}</td>
         {% endfor %}
         </tr>
-
       {% endfor %}
       </tbody>
       </table>
