@@ -1,3 +1,4 @@
+//Disable all inputs by default
 $("#student_id").prop("disabled", true);
 $("#weight").prop("disabled", true);
 $("#height").prop("disabled", true);
@@ -6,6 +7,7 @@ $("#exercise_name").prop("disabled", true);
 $("#type").prop("disabled", true);
 $("#intensity").prop("disabled", true);
 
+//Enable/Disable inputs when the switches are changed
 $("input[name=use_student]").change(function() {
     if(this.checked) {
         $("#student_id").prop("disabled", false);
